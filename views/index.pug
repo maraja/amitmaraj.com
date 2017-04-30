@@ -1,0 +1,324 @@
+extends layout
+
+block content
+	.main-container
+		section.height-80.imagebg.cover.cover-4.parallax(data-overlay='3')
+			.background-image-holder.background--bottom
+				img(alt='image', src='img/cn-tower.jpg')
+			.container.pos-vertical-center
+				.row
+					.col-sm-12.text-center
+						h1
+							| Amit Maraj
+						p.lead
+							| Driven 
+							b Professional
+							| ,
+							br
+							| with a passion for 
+							b Education
+							|  and the
+							br
+							| heart of a 
+							b Developer.
+							br
+							br
+							i The most important things are not things. So I design experiences.
+		section
+			.container
+				.row
+					.col-sm-12
+						.elements--title.text-center
+							h3 Projects
+							hr
+					.row
+						.col-sm-12
+							a(href='http://oiika.com', target='_blank')
+								.card.card-3
+									.card__image.project-image(style='background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(img/oiika.png); background-size: cover')
+										img(alt='pitstop', src='img/oiika.png', style='opacity: 0')
+									.card__body.boxed.bg--white
+										.proficiencies
+											span.language ReactJS
+											span.language Node.js
+											span.technology MongoDB
+											span.technology Swagger API
+											span.technology AWS
+											span.technology Linux
+										.card__title
+											h5
+												| Oiika Inc. 
+												span (2016)
+										span
+											em
+												| Development of an educational platform, which facilitates the connection of learning and teaching by hosting nearby tutors for ease of access.
+					.row
+						.col-sm-12.col-md-6
+							a(href='https://pitstopconnect.com', target='_blank')
+								.card.card-3
+									.card__image.project-image(style='background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(img/pitstop.PNG); background-size: cover')
+										img(alt='pitstop', src='img/pitstop.PNG', style='opacity: 0')
+									.card__body.boxed.bg--white
+										.proficiencies
+											span.language ReactJS
+											span.language Node.js
+											span.technology MongoDB
+											span.technology PostgreSQL
+											span.technology AWS
+										.card__title
+											h5
+												| Pitstop 
+												span (2016)
+										span
+											em Website redesign for Machine Learning based automotive platform.
+						.col-md-6.col-sm-12
+							a(href='https://konkussion.com', target='_blank')
+								.card.card-3
+									.card__image.project-image(style='background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(img/konkussion.png); background-size: cover')
+										img(alt='konkussion', src='img/konkussion.png', style='opacity: 0')
+									.card__body.boxed.bg--white
+										.proficiencies
+											span.language Pug (Jade)
+											span.language JavaScript
+											span.language Node.js
+											span.technology Redis
+											span.technology MongoDB
+										.card__title
+											h5
+												| Konkussion Inc. 
+												span (2015)
+										span
+											em Website redesign for brain injury research company. 
+					.row
+						.col-sm-12.col-md-6
+							a(href='#')
+								.card.card-3
+									.card__image.project-image(style='background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(img/sentiment.jpg); background-size: cover')
+										img(alt='sentiment', src='img/sentiment.jpg', style='opacity: 0')
+									.card__body.boxed.bg--white
+										.proficiencies
+											span.language Python
+											span.technology SKLearn
+											span.technology NLTK
+										.card__title
+											h5
+												| Sentiment Analysis Program 
+												span (2016)
+										span
+											em
+												| Implemented a Machine Learning based algorithm run on thousands of passages with the ability to detect correct sentiment with a rate greater than 90%.
+						.col-md-6.col-sm-12
+							a(href='#')
+								.card.card-3
+									.card__image.project-image(style='background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(img/spam.jpg); background-size: cover')
+										img(alt='spam', src='img/spam.jpg', style='opacity: 0')
+									.card__body.boxed.bg--white
+										.proficiencies
+											span.language Python
+											span.technology SKLearn
+											span.technology NLTK
+										.card__title
+											h5
+												| Spam Detection Program 
+												span (2016)
+										span
+											em
+												| Implemented a Machine Learning based algorithm run on tens of thousands of SMS messages to detect whether or not it's considered spam with a rate greater than 95%.
+					.row
+						.col-md-6.col-sm-12
+							a(href='#')
+								.card.card-3
+									.card__image.project-image(style='background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(img/message-in-bottle.jpg); background-size: cover')
+										img(alt='message-in-a-bottle', src='img/message-in-bottle.jpg', style='opacity: 0')
+									.card__body.boxed.bg--white
+										.proficiencies
+											span.language HTML5
+											span.language CSS3
+											span.language JavaScript
+											span.language PHP
+											span.technology MySQL
+											span.technology Linux
+										.card__title
+											h5
+												| Message in a Bottle Web Application 
+												span (2015)
+										span
+											em
+												| Developed a web application which allows users to securely send timed messages from one party to the next.
+						.col-md-6.col-sm-12
+							a(href='#')
+								.card.card-3
+									.card__image.project-image(style='background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(img/photo-gallery.jpeg); background-size: cover')
+										img(alt='gallery', src='img/photo-gallery.jpeg', style='opacity: 0')
+									.card__body.boxed.bg--white
+										.proficiencies
+											span.language HTML5
+											span.language CSS3
+											span.language JavaScript
+											span.language PHP
+											span.technology MySQL
+											span.technology Linux
+										.card__title
+											h5
+												| Photo Hosting Web Application 
+												span (2015)
+										span
+											em
+												| Developed a web application which allows the user to upload images taken from any camera and view in a scrapbook-based fashion.
+					.row
+						.col-md-6.col-sm-12
+							a(href='#')
+								.card.card-3
+									.card__image.project-image(style='background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(img/dijkstra-algorithm.jpg); background-size: cover')
+										img(alt='dijkstra', src='img/dijkstra-algorithm.jpg', style='opacity: 0')
+									.card__body.boxed.bg--white
+										.proficiencies
+											span.language C++
+											span.technology Visual Studio
+										.card__title
+											h5
+												| GPS Navigation Program 
+												span (2014)
+										span
+											em
+												| Recreated Dijkstra and Prim's algorithms within major cities in the GTA to replicate a GPS system.
+						.col-md-6.col-sm-12
+							a(href='#')
+								.card.card-3
+									.card__image.project-image(style='background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(img/doodle-dodge.jpg); background-size: cover')
+										img(alt='doodle-dodge', src='img/doodle-dodge.jpg', style='opacity: 0')
+									.card__body.boxed.bg--white
+										.proficiencies
+											span.language Android
+											span.technology Eclipse
+										.card__title
+											h5
+												| Doodle Dodge Android Game 
+												span (2013)
+										span
+											em Developed an Android game published with over 13,000 downloads. 
+					.row
+						.col-xs-12.text-right
+							h5
+								em Interested in some of my professional projects? 
+								em
+									a(href='./projects') Learn More >
+		section.bg--secondary
+			.container
+				.row
+					.col-sm-12
+						.elements--title.text-center
+							h3 Experience Highlights
+							hr
+					.col-md-4.col-sm-6.col-xs-12
+						.experience-highlights
+							h5 Work
+							.work-experience
+								h4 CEO & Founder
+								em
+									a(href='http://oiika.com', target='_blank') Oiika Inc.
+								em
+									p August 2015 - Ongoing, Markham ON.
+								//- <hr />
+							.work-experience
+								h4 Contracted Professor
+								em
+									a(href='http://www.durhamcollege.ca/', target='_blank') Durham College
+								em
+									p September 2014 - Ongoing
+								//- <hr />
+							.work-experience
+								h4 Principal Investigator
+								em
+									a(href='http://www.durhamcollege.ca/about-us/corporate-links/office-of-research-services-innovation-and-entrepreneurship-orsie', target='_blank')
+										| Durham College - ORSIE (Office of Research Services, Innovation & Entrepreneurship
+								em
+									p December 2015 - Ongoing
+								//- <hr />
+							.work-experience
+								h4 Teaching Assistant
+								em
+									a(href='https://www.uoit.ca/', target='_blank') UOIT
+								em
+									p September 2016 - April 2017
+							.work-experience
+								h4 Full Stack Web Developer
+								em
+									a(href='https://pitstopconnect.com', target='_blank') Ansik Inc., Pitstop
+								em
+									p Feb 2016 - August 2016, Waterloo ON.
+							.work-experience
+								h4 Full Stack Web Developer
+								em
+									a(href='https://konkussion.com', target='_blank') Konkussion Inc.
+								em
+									p Feb 2015 - October 2015, Woodbridge ON.
+							
+								//- <div class="work-experience">
+								//- <h4>SOHO IT Consultant & Contractor</h4>
+								//- <em>N/A</em>
+								//- <em><p>April 2014 - Ongoing, Markham ON.</p></em>
+								//- </div>
+					.col-md-4.col-sm-6.col-xs-12
+						.experience-highlights
+							h5 Development & DevOps
+							.work-experience
+								h4 Web
+								em
+									p HTML5, CSS3, JavaScript, jQuery, AJAX, Bootstrap, Node.js, Python, JSP, PHP
+								//- <hr />
+							.work-experience
+								h4 Mobile
+								em
+									p Android
+							.work-experience
+								h4 Frameworks & Libraries
+								em
+									p
+										| ReactJS, React-Redux, Swagger API, Flask, MERN Stack, Node.js Express Stack, WAMP & LAMP Stacks
+							.work-experience
+								h4 Databases
+								em
+									p PostgreSQL, MySQL, Microsoft Access, MongoDB, Redis (technically, a database)
+							.work-experience
+								h4 Other
+								em
+									p Git, Linux, Docker, AWS, Java, C++
+					.col-md-4.col-sm-6.col-xs-12
+						.experience-highlights
+							h5 Achievements
+							.work-experience
+								h4 Outstanding Faculty Researcher Award
+								em
+									a(href='http://www.durhamcollege.ca', target='_blank')
+										| Durham College - ORSIE (Office of Research Services, Innovation & Entrepreneurship
+								em
+									p April 2017
+								//- <hr />
+							.work-experience
+								h4 Guest Lecturer - Machine Learning
+								em
+									a(href='http://www.ruhacks.com/', target='_blank') Ryerson University - RUHacks 2017
+								em
+									p March 2017
+							.work-experience
+								h4 Guest Lecturer - Artificial Intelligence
+								em
+									a(href='http://www.ruhacks.com/', target='_blank') Durham College
+								em
+									p November 2016
+							.work-experience
+								h4 BIT (Hons.) - Bachelor's in IT (IT Security)
+								em
+									a(href='https://www.uoit.ca/', target='_blank') UOIT
+								em
+									p
+										| June 2016 - UOIT
+										br
+										| * Highest Distinction
+							.work-experience
+								h4 Computer Systems Technician Diploma
+								em
+									a(href='http://www.durhamcollege.ca/', target='_blank') Durham College
+								em
+									p June 2014 - Durham College

@@ -1,0 +1,24 @@
+extends layout
+
+block content	
+	.main-container
+		section
+			.container
+				.row
+					.col-sm-8.col-sm-offset-2
+						form.form--square.form-email(data-success="Thanks for your enquiry, we'll be in touch soon", data-error='Please fill all required fields')
+							h4.text-center Interested? Drop me a line below…
+							.input-with-icon.col-sm-12
+								i.icon-MaleFemale
+								input.validate-required(type='text', name='name', placeholder='Your Name')
+							.input-with-icon.col-sm-6
+								i.icon-Email
+								input.validate-required.validate-email(type='email', name='email', placeholder='Email Address')
+							.input-with-icon.col-sm-6
+								i.icon-Phone-2
+								input(type='tel', name='telephone', placeholder='Phone Number')
+							.col-sm-12
+								textarea.validate-required(name='message', placeholder='Your Message', rows='8')
+							.col-sm-12
+								button.btn.btn--primary.vpe(type='submit')
+									| Submit Form
