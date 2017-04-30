@@ -1,0 +1,26 @@
+USING: production
+[0mGET / [36m304 [0m670.628 ms - -[0m
+[0mGET /css/socicon.css [36m304 [0m10.070 ms - -[0m
+[0mGET /css/iconsmind.css [36m304 [0m9.207 ms - -[0m
+[0mGET /css/bootstrap.css [36m304 [0m8.817 ms - -[0m
+[0mGET /css/interface-icons.css [36m304 [0m8.862 ms - -[0m
+[0mGET /css/owl.carousel.css [36m304 [0m4.219 ms - -[0m
+[0mGET /css/custom2.css [36m304 [0m4.329 ms - -[0m
+[0mGET /css/font-mulilato.css [36m304 [0m0.942 ms - -[0m
+[0mGET /js/jquery-2.1.4.min.js [36m304 [0m0.601 ms - -[0m
+[0mGET /js/scrollreveal.min.js [36m304 [0m0.455 ms - -[0m
+[0mGET /js/parallax.js [36m304 [0m0.454 ms - -[0m
+[0mGET /js/scripts.js [36m304 [0m0.333 ms - -[0m
+[0mGET /img/cn-tower.jpg [36m304 [0m1.238 ms - -[0m
+[0mGET /img/oiika.png [36m304 [0m2.895 ms - -[0m
+[0mGET /img/pitstop.PNG [36m304 [0m1.545 ms - -[0m
+[0mGET /img/konkussion.png [36m304 [0m0.985 ms - -[0m
+[0mGET /img/sentiment.jpg [36m304 [0m0.343 ms - -[0m
+[0mGET /img/spam.jpg [36m304 [0m0.631 ms - -[0m
+[0mGET /img/message-in-bottle.jpg [36m304 [0m1.125 ms - -[0m
+[0mGET /img/photo-gallery.jpeg [36m304 [0m0.571 ms - -[0m
+[0mGET /img/dijkstra-algorithm.jpg [36m304 [0m0.341 ms - -[0m
+[0mGET /img/doodle-dodge.jpg [36m304 [0m0.333 ms - -[0m
+[0mGET /img/cloud2.jpg [36m304 [0m0.756 ms - -[0m
+[0mGET /fonts/socicon.ttf [36m304 [0m0.762 ms - -[0m
+[0mGET /fonts/Montserrat-SemiBold.otf [36m304 [0m0.431 ms - -[0m
