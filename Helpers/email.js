@@ -1,5 +1,6 @@
 'use strict';
 const nodemailer = require('nodemailer');
+const smtpTransport = require('nodemailer-smtp-transport');
 const config = require('../config');
 
 
@@ -10,13 +11,13 @@ module.exports = {
         to = config.email.emailTo;
 
         // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
+        let transporter = nodemailer.createTransport(smtpTransport({
             service: 'gmail',
             auth: {
                 user: config.email.nodemailerAccount,
                 pass: config.email.nodemailerAccountPass
             }
-        });
+        }));
 
         // setup email data with unicode symbols
         let mailOptions = {
