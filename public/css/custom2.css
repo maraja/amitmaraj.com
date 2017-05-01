@@ -1520,7 +1520,7 @@ nav {
   }
   .nav-bar .nav-module:not(.logo-module) {
     height: auto;
-    line-height: 2em;
+    line-height: 3em;
   }
   .menu {
     height: auto;
@@ -1582,6 +1582,11 @@ nav {
 .nav-open .nav-bar {
   max-height: 100000px !important;
 }
+
+.nav-closed { display: none !important; }
+.nav-li-open { display: block !important; }
+.nav-open { height: auto !important; }
+
 .nav--fixed,
 .nav--absolute {
   width: 100%;
@@ -1602,12 +1607,15 @@ nav:not(.nav--fixed):not(.nav--absolute) {
 @media all and (max-width: 990px) {
   .nav-bar.nav--absolute,
   .nav-bar.nav--fixed {
-    position: relative;
+    /*position: relative;*/
   }
   .nav-bar.nav--absolute + .nav-mobile-toggle,
   .nav-bar.nav--fixed + .nav-mobile-toggle {
-    position: absolute;
+    /*position: absolute;*/
   }
+  .nav-bar { overflow: initial; }
+  nav .menu { height: 80px; }
+  nav .menu li { display: none; }
 }
 /**! 13. Form Elements **/
 form {
