@@ -1,6 +1,7 @@
 'use strict';
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
+const mg = require('nodemailer-mailgun-transport');
 const config = require('../config');
 
 
@@ -8,16 +9,25 @@ module.exports = {
 
     sendMail: (name, from, phoneNumber, to, subject, text) => {
 
+        var auth = {
+            auth: {
+                api_key: config.email.mailgunApiKey,
+                domain: 'email.amitmaraj.com'
+            }
+        }
+
+        let nodemailerMailgun = nodemailer.createTransport(mg(auth));
+
         to = config.email.emailTo;
 
         // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport(smtpTransport({
-            service: 'gmail',
-            auth: {
-                user: config.email.nodemailerAccount,
-                pass: config.email.nodemailerAccountPass
-            }
-        }));
+        // let transporter = nodemailer.createTransport(smtpTransport({
+        //     service: 'gmail',
+        //     auth: {
+        //         user: config.email.nodemailerAccount,
+        //         pass: config.email.nodemailerAccountPass
+        //     }
+        // }));
 
         // setup email data with unicode symbols
         let mailOptions = {
@@ -33,7 +43,7 @@ module.exports = {
         return new Promise((resolve, reject) => {
 
             // send mail with defined transport object
-            transporter.sendMail(mailOptions, (error, info) => {
+            nodemailerMailgun.sendMail(mailOptions, (error, info) => {
                 if (error) {
                     return reject(error);
                 }
