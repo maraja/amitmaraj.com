@@ -309,298 +309,298 @@ mr = (function (mr, $, window, document){
 }(mr, jQuery, window, document));
 
 //////////////// Forms
-mr = (function (mr, $, window, document){
-    "use strict";
+// mr = (function (mr, $, window, document){
+//     "use strict";
     
-    mr.forms = {};
+//     mr.forms = {};
 
-    var documentReady = function($){
+//     var documentReady = function($){
         
-        //////////////// Checkbox Inputs
+//         //////////////// Checkbox Inputs
 
-        $('.input-checkbox').on('click', function() {
-            var checkbox = $(this);
-            checkbox.toggleClass('checked');
+//         $('.input-checkbox').on('click', function() {
+//             var checkbox = $(this);
+//             checkbox.toggleClass('checked');
             
-            var input = checkbox.find('input');
-            if (input.prop('checked') === false) {
-                input.prop('checked', true);
-            } else {
-                input.prop('checked', false);
-            }
-            return false;
-        });
+//             var input = checkbox.find('input');
+//             if (input.prop('checked') === false) {
+//                 input.prop('checked', true);
+//             } else {
+//                 input.prop('checked', false);
+//             }
+//             return false;
+//         });
 
-        //////////////// Radio Buttons
+//         //////////////// Radio Buttons
 
-        $('.input-radio').on('click', function() {
-            var radio = $(this);
-            radio.closest('form').find('.input-radio').removeClass('checked');
-            radio.addClass('checked').find('input').prop('checked', true);
-            return false;
-        });
+//         $('.input-radio').on('click', function() {
+//             var radio = $(this);
+//             radio.closest('form').find('.input-radio').removeClass('checked');
+//             radio.addClass('checked').find('input').prop('checked', true);
+//             return false;
+//         });
 
-        //////////////// File Uploads
+//         //////////////// File Uploads
 
-        $('.input-file .btn').on('click',function(){
-            $(this).siblings('input').trigger('click');
-            return false;
-        });
+//         $('.input-file .btn').on('click',function(){
+//             $(this).siblings('input').trigger('click');
+//             return false;
+//         });
         
-        //////////////// Handle Form Submit
+//         //////////////// Handle Form Submit
 
-        $('form.form-email, form[action*="list-manage.com"], form[action*="createsend.com"]').attr('novalidate', true).unbind('submit').on('submit', mr.forms.submit);
+//         $('form.form-email, form[action*="list-manage.com"], form[action*="createsend.com"]').attr('novalidate', true).unbind('submit').on('submit', mr.forms.submit);
 
-        //////////////// Handle Form Submit
-        $(document).on('change, input, paste, keyup', '.attempted-submit .field-error', function(){
-            $(this).removeClass('field-error');
-        });
+//         //////////////// Handle Form Submit
+//         $(document).on('change, input, paste, keyup', '.attempted-submit .field-error', function(){
+//             $(this).removeClass('field-error');
+//         });
 
-    };
+//     };
 
-    mr.forms.documentReady = documentReady;
+//     mr.forms.documentReady = documentReady;
     
-    mr.forms.submit = function(e){
-        // return false so form submits through jQuery rather than reloading page.
-        if (e.preventDefault) e.preventDefault();
-        else e.returnValue = false;
+//     mr.forms.submit = function(e){
+//         // return false so form submits through jQuery rather than reloading page.
+//         if (e.preventDefault) e.preventDefault();
+//         else e.returnValue = false;
 
-        var body          = $('body'),
-            thisForm      = $(e.target).closest('form'),
-            formAction    = typeof thisForm.attr('action') !== typeof undefined ? thisForm.attr('action') : "",
-            submitButton  = thisForm.find('button[type="submit"], input[type="submit"]'),
-            error         = 0,
-            originalError = thisForm.attr('original-error'),
-            successRedirect, formError, formSuccess, errorText, successText;
+//         var body          = $('body'),
+//             thisForm      = $(e.target).closest('form'),
+//             formAction    = typeof thisForm.attr('action') !== typeof undefined ? thisForm.attr('action') : "",
+//             submitButton  = thisForm.find('button[type="submit"], input[type="submit"]'),
+//             error         = 0,
+//             originalError = thisForm.attr('original-error'),
+//             successRedirect, formError, formSuccess, errorText, successText;
 
-        body.find('.form-error, .form-success').remove();
-        submitButton.attr('data-text', submitButton.text());
-        errorText = thisForm.attr('data-error') ? thisForm.attr('data-error') : "Please fill all fields correctly";
-        successText = thisForm.attr('data-success') ? thisForm.attr('data-success') : "Thanks, we'll be in touch shortly";
-        body.append('<div class="form-error" style="display: none;">' + errorText + '</div>');
-        body.append('<div class="form-success" style="display: none;">' + successText + '</div>');
-        formError = body.find('.form-error');
-        formSuccess = body.find('.form-success');
-        thisForm.addClass('attempted-submit');
+//         body.find('.form-error, .form-success').remove();
+//         submitButton.attr('data-text', submitButton.text());
+//         errorText = thisForm.attr('data-error') ? thisForm.attr('data-error') : "Please fill all fields correctly";
+//         successText = thisForm.attr('data-success') ? thisForm.attr('data-success') : "Thanks, we'll be in touch shortly";
+//         body.append('<div class="form-error" style="display: none;">' + errorText + '</div>');
+//         body.append('<div class="form-success" style="display: none;">' + successText + '</div>');
+//         formError = body.find('.form-error');
+//         formSuccess = body.find('.form-success');
+//         thisForm.addClass('attempted-submit');
 
-        // Do this if the form is intended to be submitted to MailChimp or Campaign Monitor
-        if (formAction.indexOf('createsend.com') !== -1 || formAction.indexOf('list-manage.com') !== -1 ) {
+//         // Do this if the form is intended to be submitted to MailChimp or Campaign Monitor
+//         if (formAction.indexOf('createsend.com') !== -1 || formAction.indexOf('list-manage.com') !== -1 ) {
 
-            console.log('Mail list form signup detected.');
-            if (typeof originalError !== typeof undefined && originalError !== false) {
-                formError.html(originalError);
-            }
+//             console.log('Mail list form signup detected.');
+//             if (typeof originalError !== typeof undefined && originalError !== false) {
+//                 formError.html(originalError);
+//             }
             
-            // validateFields returns 1 on error;
-            if (mr.forms.validateFields(thisForm) !== 1) {
+//             // validateFields returns 1 on error;
+//             if (mr.forms.validateFields(thisForm) !== 1) {
                
-                thisForm.removeClass('attempted-submit');
+//                 thisForm.removeClass('attempted-submit');
 
-                // Hide the error if one was shown
-                formError.fadeOut(200);
-                // Create a new loading spinner in the submit button.
-                submitButton.addClass('btn--loading');
+//                 // Hide the error if one was shown
+//                 formError.fadeOut(200);
+//                 // Create a new loading spinner in the submit button.
+//                 submitButton.addClass('btn--loading');
                 
-                try{
-                    $.ajax({
-                        url: thisForm.attr('action'),
-                        crossDomain: true,
-                        data: thisForm.serialize(),
-                        method: "GET",
-                        cache: false,
-                        dataType: 'json',
-                        contentType: 'application/json; charset=utf-8',
-                        success: function(data){
-                            // Request was a success, what was the response?
+//                 try{
+//                     $.ajax({
+//                         url: thisForm.attr('action'),
+//                         crossDomain: true,
+//                         data: thisForm.serialize(),
+//                         method: "GET",
+//                         cache: false,
+//                         dataType: 'json',
+//                         contentType: 'application/json; charset=utf-8',
+//                         success: function(data){
+//                             // Request was a success, what was the response?
 
-                            if (data.result !== "success" && data.Status !== 200) {
+//                             if (data.result !== "success" && data.Status !== 200) {
                                 
-                                // Got an error from Mail Chimp or Campaign Monitor
+//                                 // Got an error from Mail Chimp or Campaign Monitor
 
-                                // Keep the current error text in a data attribute on the form
-                                formError.attr('original-error', formError.text());
-                                // Show the error with the returned error text.
-                                formError.html(data.msg).stop(true).fadeIn(1000);
-                                formSuccess.stop(true).fadeOut(1000);
+//                                 // Keep the current error text in a data attribute on the form
+//                                 formError.attr('original-error', formError.text());
+//                                 // Show the error with the returned error text.
+//                                 formError.html(data.msg).stop(true).fadeIn(1000);
+//                                 formSuccess.stop(true).fadeOut(1000);
 
-                                submitButton.removeClass('btn--loading');
-                            } else {
+//                                 submitButton.removeClass('btn--loading');
+//                             } else {
                                 
-                                // Got success from Mail Chimp or Campaign Monitor
+//                                 // Got success from Mail Chimp or Campaign Monitor
                                 
-                                submitButton.removeClass('btn--loading');
+//                                 submitButton.removeClass('btn--loading');
 
-                                successRedirect = thisForm.attr('data-success-redirect');
-                                // For some browsers, if empty `successRedirect` is undefined; for others,
-                                // `successRedirect` is false.  Check for both.
-                                if (typeof successRedirect !== typeof undefined && successRedirect !== false && successRedirect !== "") {
-                                    window.location = successRedirect;
-                                }else{
-                                    mr.forms.resetForm(thisForm);
-                                    mr.forms.showFormSuccess(formSuccess, formError, 1000, 5000, 500);
-                                }
-                            }
-                        }
-                    });
-                }catch(err){
-                    // Keep the current error text in a data attribute on the form
-                    formError.attr('original-error', formError.text());
-                    // Show the error with the returned error text.
-                    formError.html(err.message);
-                    mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500);
+//                                 successRedirect = thisForm.attr('data-success-redirect');
+//                                 // For some browsers, if empty `successRedirect` is undefined; for others,
+//                                 // `successRedirect` is false.  Check for both.
+//                                 if (typeof successRedirect !== typeof undefined && successRedirect !== false && successRedirect !== "") {
+//                                     window.location = successRedirect;
+//                                 }else{
+//                                     mr.forms.resetForm(thisForm);
+//                                     mr.forms.showFormSuccess(formSuccess, formError, 1000, 5000, 500);
+//                                 }
+//                             }
+//                         }
+//                     });
+//                 }catch(err){
+//                     // Keep the current error text in a data attribute on the form
+//                     formError.attr('original-error', formError.text());
+//                     // Show the error with the returned error text.
+//                     formError.html(err.message);
+//                     mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500);
 
-                    submitButton.removeClass('btn--loading');
-                }
+//                     submitButton.removeClass('btn--loading');
+//                 }
             
 
                 
-            } else {
-                // There was a validation error - show the default form error message
-                mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500);
-            }
-        } else {
-            // If no MailChimp or Campaign Monitor form was detected then this is treated as an email form instead.
-            if (typeof originalError !== typeof undefined && originalError !== false) {
-                formError.text(originalError);
-            }
+//             } else {
+//                 // There was a validation error - show the default form error message
+//                 mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500);
+//             }
+//         } else {
+//             // If no MailChimp or Campaign Monitor form was detected then this is treated as an email form instead.
+//             if (typeof originalError !== typeof undefined && originalError !== false) {
+//                 formError.text(originalError);
+//             }
 
-            error = mr.forms.validateFields(thisForm);
+//             error = mr.forms.validateFields(thisForm);
 
-            if (error === 1) {
-                mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500);
-            } else {
+//             if (error === 1) {
+//                 mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500);
+//             } else {
 
-                thisForm.removeClass('attempted-submit');
+//                 thisForm.removeClass('attempted-submit');
 
-                // Hide the error if one was shown
-                formError.fadeOut(200);
+//                 // Hide the error if one was shown
+//                 formError.fadeOut(200);
                 
-                // Create a new loading spinner in the submit button.
-                submitButton.addClass('btn--loading');
+//                 // Create a new loading spinner in the submit button.
+//                 submitButton.addClass('btn--loading');
 
-                jQuery.ajax({
-                    type: "POST",
-                    url: "mail/mail.php",
-                    data: thisForm.serialize()+"&url="+window.location.href,
-                    success: function(response) {
-                        // Swiftmailer always sends back a number representing number of emails sent.
-                        // If this is numeric (not Swift Mailer error text) AND greater than 0 then show success message.
+//                 jQuery.ajax({
+//                     type: "POST",
+//                     url: "mail/mail.php",
+//                     data: thisForm.serialize()+"&url="+window.location.href,
+//                     success: function(response) {
+//                         // Swiftmailer always sends back a number representing number of emails sent.
+//                         // If this is numeric (not Swift Mailer error text) AND greater than 0 then show success message.
 
-                        submitButton.removeClass('btn--loading');
+//                         submitButton.removeClass('btn--loading');
 
-                        if ($.isNumeric(response)) {
-                            if (parseInt(response,10) > 0) {
-                                // For some browsers, if empty 'successRedirect' is undefined; for others,
-                                // 'successRedirect' is false.  Check for both.
-                                successRedirect = thisForm.attr('data-success-redirect');
-                                if (typeof successRedirect !== typeof undefined && successRedirect !== false && successRedirect !== "") {
-                                    window.location = successRedirect;
-                                }
+//                         if ($.isNumeric(response)) {
+//                             if (parseInt(response,10) > 0) {
+//                                 // For some browsers, if empty 'successRedirect' is undefined; for others,
+//                                 // 'successRedirect' is false.  Check for both.
+//                                 successRedirect = thisForm.attr('data-success-redirect');
+//                                 if (typeof successRedirect !== typeof undefined && successRedirect !== false && successRedirect !== "") {
+//                                     window.location = successRedirect;
+//                                 }
 
-                                mr.forms.resetForm(thisForm);
-                                mr.forms.showFormSuccess(formSuccess, formError, 1000, 5000, 500);
-                            }
-                        }
-                        // If error text was returned, put the text in the .form-error div and show it.
-                        else {
-                            // Keep the current error text in a data attribute on the form
-                            formError.attr('original-error', formError.text());
-                            // Show the error with the returned error text.
-                            formError.text(response).stop(true).fadeIn(1000);
-                            formSuccess.stop(true).fadeOut(1000);
-                        }
-                    },
-                    error: function(errorObject, errorText, errorHTTP) {
-                        // Keep the current error text in a data attribute on the form
-                        formError.attr('original-error', formError.text());
-                        // Show the error with the returned error text.
-                        formError.text(errorHTTP).stop(true).fadeIn(1000);
-                        formSuccess.stop(true).fadeOut(1000);
-                        submitButton.removeClass('btn--loading');
-                    }
-                });
-            }
-        }
-        return false;
-    };
+//                                 mr.forms.resetForm(thisForm);
+//                                 mr.forms.showFormSuccess(formSuccess, formError, 1000, 5000, 500);
+//                             }
+//                         }
+//                         // If error text was returned, put the text in the .form-error div and show it.
+//                         else {
+//                             // Keep the current error text in a data attribute on the form
+//                             formError.attr('original-error', formError.text());
+//                             // Show the error with the returned error text.
+//                             formError.text(response).stop(true).fadeIn(1000);
+//                             formSuccess.stop(true).fadeOut(1000);
+//                         }
+//                     },
+//                     error: function(errorObject, errorText, errorHTTP) {
+//                         // Keep the current error text in a data attribute on the form
+//                         formError.attr('original-error', formError.text());
+//                         // Show the error with the returned error text.
+//                         formError.text(errorHTTP).stop(true).fadeIn(1000);
+//                         formSuccess.stop(true).fadeOut(1000);
+//                         submitButton.removeClass('btn--loading');
+//                     }
+//                 });
+//             }
+//         }
+//         return false;
+//     };
     
-    mr.forms.validateFields = function(form) {
-        var body = $(body), name, error, originalErrorMessage;
+//     mr.forms.validateFields = function(form) {
+//         var body = $(body), name, error, originalErrorMessage;
 
-        $(form).find('.validate-required[type="checkbox"]').each(function() {
-            if (!$('[name="' + $(this).attr('name') + '"]:checked').length) {
-                error = 1;
-                name = $(this).attr('name').replace('[]', '');
-                body.find('.form-error').text('Please tick at least one ' + name + ' box.');
-            }
-        });
+//         $(form).find('.validate-required[type="checkbox"]').each(function() {
+//             if (!$('[name="' + $(this).attr('name') + '"]:checked').length) {
+//                 error = 1;
+//                 name = $(this).attr('name').replace('[]', '');
+//                 body.find('.form-error').text('Please tick at least one ' + name + ' box.');
+//             }
+//         });
 
-        $(form).find('.validate-required, .required, [required]').each(function() {
-            if ($(this).val() === '') {
-                $(this).addClass('field-error');
-                error = 1;
-            } else {
-                $(this).removeClass('field-error');
-            }
-        });
+//         $(form).find('.validate-required, .required, [required]').each(function() {
+//             if ($(this).val() === '') {
+//                 $(this).addClass('field-error');
+//                 error = 1;
+//             } else {
+//                 $(this).removeClass('field-error');
+//             }
+//         });
 
-        $(form).find('.validate-email, .email, [name*="cm-"][type="email"]').each(function() {
-            if (!(/(.+)@(.+){2,}\.(.+){2,}/.test($(this).val()))) {
-                $(this).addClass('field-error');
-                error = 1;
-            } else {
-                $(this).removeClass('field-error');
-            }
-        });
+//         $(form).find('.validate-email, .email, [name*="cm-"][type="email"]').each(function() {
+//             if (!(/(.+)@(.+){2,}\.(.+){2,}/.test($(this).val()))) {
+//                 $(this).addClass('field-error');
+//                 error = 1;
+//             } else {
+//                 $(this).removeClass('field-error');
+//             }
+//         });
 
-        if (!form.find('.field-error').length) {
-            body.find('.form-error').fadeOut(1000);
-        }else{
+//         if (!form.find('.field-error').length) {
+//             body.find('.form-error').fadeOut(1000);
+//         }else{
             
-            var firstError = $(form).find('.field-error:first');
+//             var firstError = $(form).find('.field-error:first');
             
-            if(firstError.length){
-                $('html, body').stop(true).animate({
-                    scrollTop: (firstError.offset().top - 100)
-                }, 1200, function(){firstError.focus();});
-            }
-        }
+//             if(firstError.length){
+//                 $('html, body').stop(true).animate({
+//                     scrollTop: (firstError.offset().top - 100)
+//                 }, 1200, function(){firstError.focus();});
+//             }
+//         }
 
-        return error;
-    };
+//         return error;
+//     };
 
-    mr.forms.showFormSuccess = function(formSuccess, formError, fadeOutError, wait, fadeOutSuccess){
+//     mr.forms.showFormSuccess = function(formSuccess, formError, fadeOutError, wait, fadeOutSuccess){
         
-        formSuccess.stop(true).fadeIn(fadeOutError);
+//         formSuccess.stop(true).fadeIn(fadeOutError);
 
-        formError.stop(true).fadeOut(fadeOutError);
-        setTimeout(function() {
-            formSuccess.stop(true).fadeOut(fadeOutSuccess);
-        }, wait);
-    };
+//         formError.stop(true).fadeOut(fadeOutError);
+//         setTimeout(function() {
+//             formSuccess.stop(true).fadeOut(fadeOutSuccess);
+//         }, wait);
+//     };
 
-    mr.forms.showFormError = function(formSuccess, formError, fadeOutSuccess, wait, fadeOutError){
+//     mr.forms.showFormError = function(formSuccess, formError, fadeOutSuccess, wait, fadeOutError){
         
-        formError.stop(true).fadeIn(fadeOutSuccess);
+//         formError.stop(true).fadeIn(fadeOutSuccess);
 
-        formSuccess.stop(true).fadeOut(fadeOutSuccess);
-        setTimeout(function() {
-            formError.stop(true).fadeOut(fadeOutError);
-        }, wait);
-    };
+//         formSuccess.stop(true).fadeOut(fadeOutSuccess);
+//         setTimeout(function() {
+//             formError.stop(true).fadeOut(fadeOutError);
+//         }, wait);
+//     };
 
-    // Reset form to empty/default state.
-    mr.forms.resetForm = function(form){
-        form = $(form);
-        form.get(0).reset();
-        form.find('.input-radio, .input-checkbox').removeClass('checked');
+//     // Reset form to empty/default state.
+//     mr.forms.resetForm = function(form){
+//         form = $(form);
+//         form.get(0).reset();
+//         form.find('.input-radio, .input-checkbox').removeClass('checked');
 
-    };
+//     };
 
-    mr.components.documentReady.push(documentReady);
-    return mr;
+//     mr.components.documentReady.push(documentReady);
+//     return mr;
 
-}(mr, jQuery, window, document));
+// }(mr, jQuery, window, document));
 
 //////////////// Maps
 mr = (function (mr, $, window, document){
@@ -1339,7 +1339,7 @@ mr = (function (mr, $, window, document){
 
 	// Reinitialize the forms so interactions work as they should
 
-	mr.forms.documentReady(mr.setContext('form.form--active'));
+	// mr.forms.documentReady(mr.setContext('form.form--active'));
 		
   };
 

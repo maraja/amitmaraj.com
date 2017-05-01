@@ -1,4 +1,6 @@
 var express = require('express');
+
+var email = require('../Helpers/email');
 var router = express.Router();
 
 /* GET home page. */
@@ -16,6 +18,19 @@ router.get('/projects', function(req, res, next) {
 
 router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Amit Maraj - Contact Me' });
+});
+
+router.post('/contact', function(req, res, next) {
+	console.log("BODY")
+	console.log(req.body)
+
+	email.sendMail(req.body.name, req.body.email, req.body.telephone, 'amit.maraj@gmail.com', 'Someone has contacted you on amitmaraj.com!', req.body.message)
+	.then(result => {
+  		res.render('thankyou', { title: 'Amit Maraj - Thank You', result: result });
+	}).catch(error => {
+  		res.render('thankyou', { title: 'Amit Maraj - Thank You', error: error });
+	})
+
 });
 
 module.exports = router;
