@@ -36,7 +36,7 @@ module.exports = {
             subject: subject, // Subject line
             // text: text, // plain text body
             html: `<b><h2>Inquiry from `+name+` on amitmaraj.com</h2></b>
-            <h4>Contact at: `+phoneNumber+`</h4><br />
+            <h4>Contact at: `+phoneNumber+` (`+ from +`)</h4><br />
             <p>`+text+`</p>` // html body
         };
 
