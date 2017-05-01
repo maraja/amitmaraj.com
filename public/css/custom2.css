@@ -6150,7 +6150,7 @@ a .card .card__body .proficiencies span {
     font-size: 0.95em;
     /*background-color: #b544bc;*/
     padding: 0.5em 0.7em;
-    border-radius: 5px;
+    border-radius: 15px;
     margin: 0 0 0 7px;
 }
 a .card .card__body .proficiencies .language {
