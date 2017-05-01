@@ -6,6 +6,7 @@
     "ENVIRONMENT": "production"
   },
   "scripts": {
+    "start:temp:dev": "cross-env ENVIRONMENT=production node ./bin/www", 
     "start": "pm2 start -l 0 ./bin/www",
     "start:prod": "cross-env ENVIRONMENT=production pm2 start -l 0 ./bin/www"
   },
