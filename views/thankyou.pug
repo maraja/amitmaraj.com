@@ -5,4 +5,7 @@ block content
 		section
 			.container
 				.row
-					h5 Thank you for contacting me!
+					if error 
+						h5= error
+					else
+						h5 Thank you for contacting me!
