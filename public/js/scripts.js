@@ -1053,7 +1053,8 @@ mr = (function (mr, $, window, document){
         $('.nav-mobile-toggle').on('click', function(){
             $('nav .menu li').toggleClass('nav-li-open');
             $('nav').toggleClass('nav-open');
-            $('.nav-bar').toggleClass('nav-open');
+            $('nav .menu').toggleClass('menu-closed');
+            // $('.nav-bar').toggleClass('nav-open');
             // $('nav .menu li').toggleClass('nav-closed');
         });
         

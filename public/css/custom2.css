@@ -1065,6 +1065,13 @@ a {
   background: #053eff;
   color: #fff;
 }
+
+@media (max-width: 767px) {
+  .imagebg {
+    padding: 10em 0;
+  }
+}
+
 /**! 8. Buttons **/
 .btn {
   font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
@@ -1322,6 +1329,7 @@ nav {
   z-index: 10;
 }
 .nav-bar {
+  z-index:999;
   will-change: scroll-position, transform;
   height: 80px;
   max-height: 80px;
@@ -1614,7 +1622,8 @@ nav:not(.nav--fixed):not(.nav--absolute) {
     /*position: absolute;*/
   }
   .nav-bar { overflow: initial; }
-  nav .menu { height: 80px; }
+  nav .menu { height: auto; }
+  nav .menu-closed { height: 80px;}
   nav .menu li { display: none; }
 }
 /**! 13. Form Elements **/
@@ -3614,6 +3623,11 @@ span.label {
 .nav-bar a.nav-function:hover {
   opacity: .5;
 }
+@media all and (max-width: 990px) {
+  .nav-bar {
+    background: rgba(0,0,0,1);
+  }
+}
 @media all and (min-width: 991px) {
   .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) .menu > li > a {
     color: #fff;
@@ -3792,7 +3806,7 @@ span.label {
 }
 .nav-mobile-toggle i {
   display: inline-block;
-  margin-top: 18px;
+  margin-top: 28px;
 }
 .nav-mobile-toggle:hover {
   opacity: 1;
