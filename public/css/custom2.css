@@ -1326,7 +1326,7 @@ ul:last-child {
 /**! 12. Nav Bar **/
 nav {
   background: none;
-  z-index: 10;
+  z-index: 99;
 }
 .nav-bar {
   z-index:999;
