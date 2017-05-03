@@ -7923,10 +7923,10 @@ footer .logo {
   }
 }
 .footer-2 {
-  border-top: solid 20px;
-  border-top-color: #999;
+  border-top: solid 35px;
+  border-top-color: #444;
   background-image: linear-gradient( rgba(255,255,255,.1), rgba(255,255,255,.1) ),
-    url('../img/cloud2.jpg');
+    url('../img/footer.jpg');
   background-size: cover;
 }
 .footer-2 .footer__navigation li {
