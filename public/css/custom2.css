@@ -6151,6 +6151,13 @@ a .card:hover .card__body{
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
   transform: translateY(-110px);
 }
+
+a .card:hover .card__body .proficiencies span {
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+    box-shadow: 0px 2px 15px #555;
+}
 a .card .card__body .proficiencies {
   /*bottom: 60px;*/
   /*position: absolute;*/
@@ -6161,11 +6168,15 @@ a .card .card__body .proficiencies {
     z-index: 50;
 }
 a .card .card__body .proficiencies span {
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
     font-size: 0.95em;
     /*background-color: #b544bc;*/
     padding: 0.5em 0.7em;
     border-radius: 15px;
     margin: 0 0 0 7px;
+    /*box-shadow: 0px 2px 15px #555;*/
 }
 a .card .card__body .proficiencies .language {
     color: whitesmoke;
