@@ -623,7 +623,8 @@ img {
 [data-overlay]:before {
   position: absolute;
   content: '';
-  background: #232323;
+  /*background: #232323;*/
+  background: #000;
   width: 100%;
   height: 100%;
   top: 0;
@@ -2392,7 +2393,7 @@ section.bg--dark .slider.slider--controlsoutside[data-paging="true"] .owl-theme 
 /**! 24. Parallax **/
 .parallax > .background-image-holder,
 .parallax .slides li > .background-image-holder {
-  height: 100vh;
+  height: 120vh;
   top: -50vh;
   transition: opacity 0.3s ease !important;
   -webkit-transition: opacity 0.3s ease !important;
@@ -3304,7 +3305,7 @@ h6,
 @media all and (max-width: 767px) {
   h1,
   .h1 {
-    font-size: 2em;
+    font-size: 4em;
     line-height: 1.421875em;
   }
 }

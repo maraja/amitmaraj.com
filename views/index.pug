@@ -2,9 +2,9 @@ extends layout
 
 block content
 	.main-container
-		section.height-80.imagebg.cover.cover-4.parallax(data-overlay='3', style="margin-top: -80px")
+		section.height-100.imagebg.cover.cover-4.parallax(data-overlay='5', style="margin-top: -80px")
 			.background-image-holder.background--bottom
-				img(alt='image', src='img/cn-tower-min.jpg')
+				img(alt='image', src='img/abstract-towers.jpg')
 			.container.pos-vertical-center
 				.row
 					.col-sm-12.text-center
@@ -23,8 +23,15 @@ block content
 							b Developer.
 							br
 							br
-							i The most important things are not things. So I design experiences.
-		section
+							i The most important things in life are not things. 
+							br
+							| So 
+							b
+								i I design experiences.
+			.row
+				a(href='#projects')
+					.arrow.bounce.animated
+		section#projects
 			.container
 				.row
 					.col-sm-12
